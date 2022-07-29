@@ -7,6 +7,7 @@ with Connection('http://YOUR_USERNAME:YOUR_PASSWORD@YOUR_HUAWEI_IP/') as connect
     device_signal = client.device.signal()
     rsrp = int(device_signal['rsrp'].strip('dBm'))
     result = ""
+    # TODO also consider to measure the result based on other metrics, not only RSRP.
     if rsrp >= -84:
         result = "Excellent"
     elif rsrp <= -85 or rsrp <= -102:
